@@ -9,11 +9,11 @@ class Task2Test:
         assertTrue:
             predicate(s)
         assertFalse:
-            Task2.genericNeg(predicate)(s)
+            Task2a.genericNeg(predicate)(s)
     
     @Test def testInts() =
         val predicate: (Int => Boolean) = (s) => s % 2 == 0
         assertTrue:
             predicate(8)
         assertFalse:
-            Task2.genericNeg(predicate)(8)
+            Task2a.genericNeg(predicate)(8)
