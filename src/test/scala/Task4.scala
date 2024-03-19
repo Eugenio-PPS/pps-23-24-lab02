@@ -1,5 +1,5 @@
 import org.junit.*
-import org.junit.Assert.*;
+import org.junit.Assert.*
 
 class Task4:
   @Test def calcRectanglePerimeter(): Unit =
