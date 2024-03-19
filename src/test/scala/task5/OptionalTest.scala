@@ -37,3 +37,18 @@ class OptionalTest:
     val result = Optional.map(nonEmpty, _ + 1)
     assertEquals(1, Optional.orElse(result, 1))
   }
+
+  @Test def filterShouldKeepItemMatchingPredicate(): Unit =
+    val optional = Optional.Maybe(4)
+    val result = Optional.filter(optional, (x) => x % 2 == 0)
+    assertFalse(Optional.isEmpty(result))
+
+  @Test def filterShouldDiscardItemNotMatchingPredicate(): Unit =
+    val optional = Optional.Maybe(5)
+    val result = Optional.filter(optional, (x) => x % 2 == 0)
+    assertTrue(Optional.isEmpty(result))
+
+  @Test def filterIsInvariantForEmptyOptional(): Unit =
+    val optional: Optional[Int] = Optional.Empty()
+    val result = Optional.filter(optional, (x) => x % 2 == 0)
+    assertTrue(Optional.isEmpty(result))
